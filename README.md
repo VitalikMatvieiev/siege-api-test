@@ -1,18 +1,18 @@
 
-C - 5 | R - 100
-Transactions:		        1000 hits
-Availability:		      100.00 %
-Elapsed time:		        0.93 secs
-Data transferred:	        0.02 MB
-Response time:		        0.00 secs
-Transaction rate:	     1075.27 trans/sec
-Throughput:		        0.03 MB/sec
-Concurrency:		        4.82
-Successful transactions:         500
-Failed transactions:	           0
-Longest transaction:	        0.07
-Shortest transaction:	        0.00
-
+C - 5 | R - 100 \
+Transactions:		        1000 hits \
+Availability:		      100.00 % \
+Elapsed time:		        0.93 secs \
+Data transferred:	        0.02 MB \
+Response time:		        0.00 secs \
+Transaction rate:	     1075.27 trans/sec \
+Throughput:		        0.03 MB/sec \
+Concurrency:		        4.82 \
+Successful transactions:         500 \
+Failed transactions:	           0 \
+Longest transaction:	        0.07 \
+Shortest transaction:	        0.00 \
+\
 C - 10 | R - 100
 Transactions:		        2000 hits
 Availability:		      100.00 %
