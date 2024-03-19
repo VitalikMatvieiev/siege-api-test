@@ -1,0 +1,54 @@
+#services:
+#  my-api:
+#    image: siege-api-test
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
+#    ports:
+#      - 5003:80
+#    depends_on:
+#      - postgres
+#  postgres:
+#    image: postgres:14
+#    restart: always
+#    environment:
+#      - POSTGRES_USER=postgres
+#      - POSTGRES_PASSWORD=admin
+#      - POSTGRES_DB=CSharpCornerDB
+#    ports:
+#      - 5513:5432
+#    volumes:
+#      - postgres:/var/lib/postgresql/data
+#
+#volumes:
+#  postgres:
+#    driver: local
+# ab -n 1000 -c 13 -p body.txt -T application/json http://localhost:8080/todoitems
+#  siege -c 1 -r 5 -H "Content-Type: application/json" 'POST http://localhost:8080/todoitems' < body.json
+#  siege -c5 -r 100 "http://localhost:8080/todoitems POST {\"name\":\"John DaCosta\", \"isComplete\": false }" --content-type "application/json"
+services:
+  csharp_app:
+    container_name: csharp_app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+    environment:
+      ConnectionStrings__DefaultConnection: "Host=db;Database=postgres;Username=postgres;Password=postgres"
+  db:
+    container_name: db
+    image: postgres:12
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata: {}
